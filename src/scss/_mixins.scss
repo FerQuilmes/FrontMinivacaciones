@@ -1,0 +1,49 @@
+@mixin btn-color($class,$color,$text,$border:$text){	
+	&.btn-#{$class}{
+		background: $color;
+		border-color: $border;
+		color: $text;
+		&.focus,&:focus,&:active{
+			border-color: $border !important;
+			background-color: darken($color, 15%) !important; 
+    		box-shadow: 0 0 0 0.2rem lighten($color, 20%) !important;
+		}
+		&.btn-outline{
+			&.focus,&:focus,&:active{
+				border-color: $color !important;
+				background-color: lighten($color, 25%) !important; 
+	    		box-shadow: 0 0 0 0.2rem lighten($color, 20%) !important;
+			}
+		}
+	}	
+}
+
+@mixin transition($value){	
+	transition: $value;
+	-moz-transition: $value;
+	-webkit-transition: $value;
+	-o-transition: $value;
+}
+@mixin transform($value){	
+	transform: $value;
+	-moz-transform: $value;
+	-webkit-transform: $value;
+	-o-transform: $value;
+}
+@mixin animation($name,$speed,$iteration,$delay:0){
+	animation-name: $name;
+	animation-duration: $speed;
+	animation-iteration-count: $iteration;
+	animation-delay: $delay;
+}
+
+@mixin swipe-bg($start,$end){
+	background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 50%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background-size: 205%;
+	background-position: right 0;
+	&:hover{
+		background-position: left 0;
+	}
+}

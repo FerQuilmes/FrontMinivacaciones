@@ -1,0 +1,416 @@
+@media screen and (max-width: 575px){
+    $border-size: 2px;
+
+    .bt-inner{ margin-top: -$border-size !important; }
+
+    body{
+        margin-top: 70px;
+    }
+
+    header{
+        background: $yellow url(../images/bg-registro.svg) right -120px center no-repeat;
+        nav.navbar{
+            height: 70px;
+            a.navbar-brand{
+                img#logo{
+                    width: 100px;
+                }
+            }
+            div.navbar-collapse.collapse#skolMenu{
+                position: fixed;
+                display: flex !important;
+                top: 70px;
+                left: 0;
+                background: $black2;
+                width: 100vw;
+                height: 0;
+                @include transition(0.5s);
+                overflow: hidden;
+                display: block !important;
+                &.show{
+                    height: calc(100vh - 70px);
+                }
+                ul.navbar-nav{
+                    margin: 40px 40px 20px;
+                    width: calc(100% - 70px);
+                    text-align: center;
+                    display: block;
+                    border-bottom: solid thin $yellow;
+                    li.nav-item{
+                        text-align: left;
+                        display: block;
+                        margin: 0 11px;
+                        &.social:not(.promo){
+                            display: inline-block;
+                            margin: -20px 0 20px ;
+                            a.nav-link{
+                                font-size: 20px;
+                                margin: 0 15px;
+                            }
+                        }
+                        br{height: 0;}
+                        a.nav-link{
+                            text-align: left;
+                            display: inline-block;
+                            color: $yellow;
+                            padding: 7px 0;
+                            margin: 0 10px;
+                        }
+                        &:before,&:after{
+                            display: none !important;
+                        }
+                    }
+                }
+                div#cta-nav{
+                    background: none;
+                    margin-right: 0;
+                    padding: 0;
+                    width: 100%;
+                    justify-content: center;
+                    .btn.btn-cta{
+                        width: 170px;
+                    }
+                }
+            }
+        }
+    }
+    
+    p{
+        font-size: 20px;
+        height: 36px;
+        border: $border-size solid $black;
+        border-bottom: 0;
+        line-height: 36px;
+    }
+
+    h1{
+        font-size: 36px;
+        padding: 10px;
+    }
+
+    h2{
+        font-size: 18px;
+        border: $border-size solid $black;
+        padding: 5px 10px;
+
+    }
+
+    
+    .text-content-a{
+        width: 100%;
+        margin-top: 0;
+        p:last-child{
+            border-bottom: $border-size solid $black;
+        }
+
+    }
+
+    .text-content-b{
+        width: 66.6%;
+        p:last-child{
+            border-bottom: $border-size solid $black;
+            img{
+                width: 53%;
+            }
+        }
+    }
+    .text-content-c{
+        width: 100%;
+        margin-right: 0;
+        margin-top: -$border-size;
+        p{
+            text-align: left;
+            padding: 0 15px;
+        }
+        p:last-child{
+            
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+
+    .text-content-modal{
+        padding-left: calc(36px - calc($border-size * 2));
+        padding-right: calc(36px - calc($border-size * 2));
+        margin-top: -$border-size;
+        p{
+            padding-left: 15px;
+            padding-right: 15px;
+            font-size: 18px;
+            line-height: 36px;
+            &.last{
+                border-bottom: $border-size solid $black;
+                img{
+                    vertical-align: text-top;
+                    width: 40%;
+                    margin: 0 auto;
+                }
+            }
+        }
+        a.btn-primary{
+            width: calc(100% - 145px);
+            margin-top: -65px;
+            font-size: 18px;
+            line-height: 20px;
+            padding: 5px 10px;
+            height: 35px;
+        }
+    
+    }
+
+    #modal-registro{
+        .modal-content{
+            .modal-body{
+                padding-bottom: 10px;
+            }
+        }
+    }
+
+    .square{
+        border: $border-size solid $black;
+        img{
+            width: 65%;
+        }
+        &.mod-img-botella{
+            width: 185px;
+            height: 276px;
+            &.pos-main{
+                margin-top: -$border-size;
+                margin-right: -15px;
+                img{
+                    margin-top: -62px;
+                    width: 226px;
+                    z-index: 2;
+                }
+            }
+        }
+        &.mod-icon{
+            width: 43px;
+            height: 43px;
+            &.smile-a{
+                margin-right: -$border-size;
+                margin-top: -$border-size;
+                align-self: flex-start;
+            }
+            &.smile-b{
+                margin-top: -$border-size;
+                margin-left: -17px;
+            }
+            &.smile-c{
+                align-self: end;
+                margin-right: 0;
+                margin-top: 0;
+                margin-bottom: 41px;
+                margin-left: -$border-size;
+            }
+            &.smile-d{
+                margin: 0;
+                margin-left: calc(25% - 33px);
+            }
+            &.beer-a{
+                margin: 0;
+                margin-right: auto;
+                margin-left: -15px;
+                align-self: end;
+            }
+            &.beer-b{
+                align-self: flex-end;
+                margin-left: -$border-size;
+            }
+            &.beer-c{
+                margin-right: -$border-size;
+            }
+            &.beer-d{
+                margin-left: -$border-size;
+                margin-top: 39px;
+            }
+        }
+        &.mod-img-pareja{
+            width: 148px;
+            height: 240px;
+            overflow: hidden;
+            &.pos-main{
+                margin-bottom: 41px;
+                margin-top: -70px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        &.mod-logo{
+            width: 112px;
+            height: 91px;
+            &.pos-main{
+                margin-top: -$border-size;
+                align-self: start;
+                margin-right: auto;
+                margin-left: -15px;
+            }
+            &.pos-agegate{
+                width: 100%;
+                height: 82px;
+            }
+        }
+        &.mod-img-playa{
+            width: 157px;
+            height: 220px;
+            margin-top: -$border-size;
+            margin-bottom: 41px;
+            img{
+                width: 100%;
+            }
+        }
+        &.mod-img-foz{
+            width: 154px;
+            height: 78px;
+            img{
+                width: 100%;
+            }
+            &.pos-main{
+                margin-top: 80px;
+                margin-left: -$border-size;
+            }
+        }
+        &.mod-closebtn{
+            width: 36px;
+            height: 36px;
+            margin-top: -$border-size;
+            margin-right: -$border-size;
+            font-size: 20px;
+        }
+        &.mod-botellapop{
+            width: 145px;
+            height: 168px;
+            margin-top: -36px;
+            img{
+                margin-top: -15px;
+                width: 100%;
+            }
+        }
+        &.one{
+            width: 33.4%;
+            p{
+                &:first-child{
+                    font-size: 100px;
+                    line-height: 100px;
+                }
+                &:last-child{
+                    font-size: 36px;
+                    line-height: 36px;
+                    margin-top: -10px;
+                }
+            }
+        }
+        &.mod-404{
+            height: 76px;
+        }
+        &.mod-agegate{
+            width: 100%;
+            margin-top: -43px !important;
+            &.title{
+                margin-top: 0 !important;
+                width: calc(100% + 30px + $border-size);
+                margin-left: calc(-30px - $border-size); 
+            }
+            &.right{
+                margin-top: 0 !important;
+                padding: 10px;
+            }
+
+        }
+        &.mod-404-descrip{
+            margin-left: 0;
+            width: 100%;
+        }
+    }
+
+    form button[type=submit]{
+        width: 100%;
+    }
+
+    footer{
+        margin-top: 60px;
+        .bottom p#disclaimer{
+            padding: 0;
+            margin: 0;
+            font-size: 10px;
+            line-height: 12px;
+        }
+        .top{
+            ul.navbar-nav.nav li.nav-item a.nav-link{
+                font-size: 12px;
+            }
+            ul.social-nav li.nav-item a.nav-link{
+                color:white
+            }
+            div.navbar-logo{
+                display: none;
+            }
+        } 
+    }
+
+    .btn:not(.btn-cta){
+        padding: 5px 40px;
+        line-height: 44px;
+        font-size: 24px;
+    }
+
+    .agegate-form{
+        border: $border-size solid $black;
+        padding: 25px 20px;
+        width: 100%;
+        p{
+          
+            text-align: center;
+            border:0;
+        }
+        .form-group{
+            padding-left: 2px;
+            padding-right: 2px;
+            .form-control{
+                font-size: 38px;
+                height: 62px;
+                text-align: center;
+            }
+        }
+    }
+
+    footer.skolfoz{
+        position: relative;
+       
+        .container{
+            margin-top: 0;
+            width: initial;
+            margin: auto;
+        }
+
+        p{
+            font-size: 12px;
+            padding-left: 5px;
+            padding-right: 5px;
+            text-align: center;
+            width: 100%;
+        }
+        a{
+            font-size: 12px;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-bottom: 15px;
+            &:hover, &:active{
+                text-decoration: underline;
+            }
+            
+        }
+    }
+
+    .byc-content{
+        p{
+            line-height: 14px;
+        }
+
+    }
+
+    .byc-title{
+        width: 100%;
+    }
+}

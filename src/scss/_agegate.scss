@@ -1,0 +1,83 @@
+.agegate-form{
+    border: $border-size solid $black;
+    padding: 32px 42px;
+    width: 100%;
+    p{
+        @extend %brown;
+        text-align: center;
+        border:0;
+    }
+    .form-group{
+        padding-left: 2px;
+        padding-right: 2px;
+        .form-control{
+            font-size: 38px;
+            width: 100%;
+            height: 62px;
+            text-align: center;
+        }
+    }
+}
+
+.square{
+    &.mod-agegate{
+        width: calc(100% + 30px + $border-size);
+        height: 110px;
+        &.title{
+            width: calc(100% + $border-size);
+            margin-left: -$border-size; 
+        }
+        &.right{
+            width: 100%;
+            height: 100%;
+            border: 0;
+            p{
+                text-align: center;
+                font-size: 10px;
+                line-height: 12px;
+            }
+        }
+        p{
+            @extend %brown;
+            border:0;
+            height: auto;
+            padding: 12px 24px;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: right;
+        }
+    }
+}
+
+footer.skolfoz{
+    position: relative;
+    bottom: 0;
+    padding-bottom: 10px;
+    width: 100%;
+    align-self: flex-end;
+    margin-top: 30px;
+    .container{
+        margin-top: 0;
+        width: 1140px;
+        margin-left: calc((100vw - 1140px) / 2);
+    }
+    p{
+        @extend %brown;
+        border: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+        flex:auto;
+        text-align: right;
+        height: auto;
+
+    }
+    a{
+        @extend %brown;
+        text-decoration: none;
+        padding-left: 15px;
+        padding-right: 15px;
+        &:hover, &:active{
+            text-decoration: underline;
+        }
+    }
+}
