@@ -1,7 +1,8 @@
 import React from "react";
 import { iconAll, imgBotellaPopup } from "../assets"
 
-export default function Popup () {
+const Popup = (props) => {
+
   return(
     <div  className="modal" tabIndex="-1" role="dialog" id="modal-registro">
       <div  className="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -21,7 +22,7 @@ export default function Popup () {
                 <div  className="square bg-white mod-botellapop">
                   <img src={imgBotellaPopup} />
                 </div>
-                <button  className="btn btn-primary" href="#" data-dismiss="modal">
+                <button  className="btn btn-primary" href="#" data-dismiss="modal" onClick={props.handleHideModal}>
                   Regresar
                 </button>
               </div>
@@ -32,3 +33,5 @@ export default function Popup () {
     </div>
   )
 };
+
+export default Popup;

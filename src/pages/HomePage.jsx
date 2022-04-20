@@ -32,7 +32,7 @@ const urlAPI = 'https://wapocazure-dev.azurewebsites.net'
 const HomePage = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const [loading, setLoading] = useState(false);
-  const [viewPopup, setViewPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   const onSubmit = async (data) => {
     console.log("data",data)
@@ -47,10 +47,10 @@ const HomePage = () => {
       if (res.success === true) {
         console.log("res", res)
         setLoading(false);
-        //$('#modal-registro').modal('show')
-        document.querySelector(".modal").classList.add("show");
-        //window.location = '/pop';
-        setViewPopup(true);
+        alert(`Ya estás participando
+        Muy pronto anunciaremos
+        Los ganadores`)
+        setShowPopup(true);
       }
       else{
         setLoading(false);
@@ -343,8 +343,7 @@ const HomePage = () => {
                       <span className="sr-only">Loading...</span>
                     </div>
                   </>
-                : null}
-                PARTICIPAR &nbsp;<i className="i-finger"></i>
+                : <>PARTICIPAR &nbsp;<i className="i-finger"></i></>}
               </button>
             </div>
           </form>
@@ -365,7 +364,7 @@ const HomePage = () => {
         </div>
       </section>
     </div>
-    <Popup />
+    <Popup show={showPopup} handleHideModal={() => setShowPopup(false)} />
     <Footer />
     </>
   );
