@@ -28,7 +28,7 @@ jobs:
           
       - name: Start the app 📤
         run: |
-          npm start
+          npm run preview
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
