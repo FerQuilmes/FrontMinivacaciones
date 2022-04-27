@@ -4,19 +4,54 @@ import { logo, iconCarita } from "../assets";
 
 // const urlAPI = 'http://localhost:3001'
 const urlAPI = 'https://wapocazure-dev.azurewebsites.net'
+let age = 20
+const ageLimit = 20
+const today = new Date()
 
 
 const AgeGatePage = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const [ dataError, setDataError ] = useState(false);
+  const [ showMonth, setShowMonth ] = useState(false);
 
   const onSubmit = async (data) => {
-    const age= `${data.ageOne}${data.ageTwo}${data.ageThree}${data.ageFour}`
-    try {
-      let response = await fetch(`${urlAPI}/ageGate/${age}/20`)
-      let res = await response.json()
-      if (res.passed === true) {
-        if (data.remember === true) {
+    age = data.age !== undefined ? data.age : age
+    if ( showMonth === false ){
+      if ( today.getFullYear() - age === ageLimit ){
+        setShowMonth(true)
+        reset(data.month)
+      }
+      else {
+        try {
+          let response = await fetch(`${urlAPI}/ageGate/${age}/${ageLimit}`)
+          let res = await response.json()
+          if (res.passed === true) {
+            if (data.remember === true) {
+            localStorage.setItem("ageGatePassed", JSON.stringify(res.passed));
+          }
+          else {
+            sessionStorage.setItem("ageGatePassed", JSON.stringify(res.passed));
+          }
+          setDataError(false)
+          window.location = '/home';
+          //navigateTo('/home')
+          }
+          else{
+            setDataError(true)
+            //window.location = 'https://www.youtube.com/'
+          }
+        }
+        catch {
+          console.log("No Funcion la API")
+        }
+      }
+    }
+    else {
+      try {
+        let response = await fetch(`${urlAPI}/ageGate/${age}-${data.month}/${ageLimit}`)
+        let res = await response.json()
+        if (res.passed === true) {
+          if (data.remember === true) {
           localStorage.setItem("ageGatePassed", JSON.stringify(res.passed));
         }
         else {
@@ -25,14 +60,15 @@ const AgeGatePage = () => {
         setDataError(false)
         window.location = '/home';
         //navigateTo('/home')
+        }
+        else{
+          setDataError(true)
+          //window.location = 'https://www.youtube.com/'
+        }
       }
-      else{
-        setDataError(true)
-        //window.location = 'https://www.youtube.com/'
+      catch {
+        console.log("No Funcion la API")
       }
-    }
-    catch {
-      console.log("No Funcion la API")
     }
   }
 
@@ -71,46 +107,25 @@ const AgeGatePage = () => {
                 className="row no-gutters gate-fields flex-nowrap"
                 v-if="mode == 0"
               >
-                <div className="col-3">
+                { showMonth === false ?
                   <div className="form-group">
                     <input
-                      {...register("ageOne", { maxLength: 1, min: 0, max: 9 })}
+                      {...register("age", { maxLength: 4 })}
                       type="tel"
                       className="form-control"
-                      placeholder="2"
+                      placeholder="Año"
                     />
                   </div>
-                </div>
-                <div className="col-3">
+                  :
                   <div className="form-group">
                     <input
-                      {...register("ageTwo", { maxLength: 1, min: 0, max: 9 })}
+                      {...register("month", { maxLength: 2 })}
                       type="tel"
                       className="form-control"
-                      placeholder="0"
+                      placeholder="Mes"
                     />
                   </div>
-                </div>
-                <div className="col-3">
-                  <div className="form-group">
-                    <input
-                      {...register("ageThree", { maxLength: 1, min: 0, max: 9 })}
-                      type="tel"
-                      className="form-control"
-                      placeholder="0"
-                    />
-                  </div>
-                </div>
-                <div className="col-3">
-                  <div className="form-group">
-                    <input
-                      {...register("ageFour", { maxLength: 1, min: 0, max: 9 })}
-                      type="tel"
-                      className="form-control"
-                      placeholder="0"
-                    />
-                  </div>
-                </div>
+                }
               </div>
               { dataError === true ?
                 <div className="text-center">
