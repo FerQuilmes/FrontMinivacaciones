@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { logo, iconCarita } from "../assets";
+import { urlAPI, ageLimit, today } from "../utilities/constants"
 
-// const urlAPI = 'http://localhost:3001'
-const urlAPI = 'https://wapocazure-dev.azurewebsites.net'
 let age = 20
-const ageLimit = 20
-const today = new Date()
-
 
 const AgeGatePage = () => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
